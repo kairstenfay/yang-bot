@@ -12,7 +12,7 @@ from typing import Any, List
 
 
 LOG = logging.getLogger(__name__)
-START_DATE = '2019-11-20'
+START_DATE = '2019-11-19'
 
 parser = argparse.ArgumentParser(description="""
     Posts Tweets.""")
