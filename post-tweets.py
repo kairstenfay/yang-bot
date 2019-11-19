@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
     def post_policy(policy: Dict[str, str]) -> Any:
         """ """
-        title       = f"Policy #{index + 1}: {policy['title']}\n"
+        title       = f"Policy #{index + 1}: {policy['title']}\n\n"
         url         = f"\n {policy['url']} "
 
         remaining_chars = 280 - len(title) - len(url)
