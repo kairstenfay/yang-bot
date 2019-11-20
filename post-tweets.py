@@ -12,7 +12,7 @@ from typing import Any
 
 
 LOG = logging.getLogger(__name__)
-START_DATE = '2019-11-19'
+START_DATE = '2019-11-18'
 
 parser = argparse.ArgumentParser(description="""
     Posts a top-level Tweet with formatted text from Andrew Yang's policies.
