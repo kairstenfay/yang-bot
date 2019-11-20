@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(description="""
     Posts a top-level Tweet with formatted text from Andrew Yang's policies.
     Subsequent statuses are posted in response to the first Tweet containing
     formatted goal text. A final status is posted in the same thread with a
-    collection of hard-coded hashtags.""")
+    uniform message.""")
 args = parser.parse_args()
 
 
@@ -66,9 +66,11 @@ if __name__ == '__main__':
             api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
-    def post_hashtags(status_id: int):
+    def post_closing_remarks(status_id: int):
         """ Posts a new status in response to the given *status_id*. """
-        status = '#YangGang #Yang2020 #WomenForYang'
+        status = 'Follow @AndrewYang for more messages like these!\n' + \
+        'This bot was made by one of the #WomenForYang\n' + \
+        '#YangGang #Yang2020'
         api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
@@ -94,4 +96,4 @@ if __name__ == '__main__':
         status = post_policy(policy)
 
         post_goals(policy, status.id)
-        post_hashtags(status.id)
+        post_closing_remarks(status.id)
