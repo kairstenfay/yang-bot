@@ -15,18 +15,25 @@ LOG = logging.getLogger(__name__)
 START_DATE = '2019-11-19'
 
 parser = argparse.ArgumentParser(description="""
-    Posts Tweets.""")
+    Posts a top-level Tweet with formatted text from Andrew Yang's policies.""")
 args = parser.parse_args()
 
 
 if __name__ == '__main__':
     def needs_ellipses(text: str, remaining_chars: int) -> bool:
-        """ """
+        """
+        Returns True if the length of a given *text* exceeds the value of
+        *remaining_chars* minus 3. Otherwise returns False.
+        """
         return len(text) >= remaining_chars - 3
 
 
     def post_policy(policy: Dict[str, str]) -> Any:
-        """ """
+        """
+        Posts a status containing formatted text from a given *policy*
+        description. Text may be truncated with an ellipses to fit within
+        Twitter's character limit.
+        """
         title       = f"Policy #{index + 1}: {policy['title']}\n\n"
         url         = f"\n {policy['url']} "
 
@@ -39,8 +46,12 @@ if __name__ == '__main__':
         return api.update_status(status=status)
 
 
-    def post_goals(policy: Dict[str, str], status_id: int) -> Any:
-        """ """
+    def post_goals(policy: Dict[str, str], status_id: int):
+        """
+        Posts one or more statuses in response to the given *status_id*.
+        New posts contain the text of individual goals listed within a given
+        *policy*.
+        """
         title = 'Goal: '
         remaining_chars = 280 - len(title)
 
@@ -52,15 +63,16 @@ if __name__ == '__main__':
             api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
-    def post_hashtags(status_id: int) -> Any:
-        """ """
+    def post_hashtags(status_id: int):
+        """ Posts a new status in response to the given *status_id*. """
         status = '#YangGang #Yang2020 #WomenForYang'
         api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
     def day_number() -> int:
-        """ """
+        """ Returns the number of days since the global *START_DATE*. """
         return datetime.now() - datetime.strptime(START_DATE, '%Y-%m-%d')
+
 
     auth = tweepy.OAuthHandler(os.environ['TWITTER_CONSUMER_KEY'],
         os.environ['TWITTER_CONSUMER_SECRET'])
