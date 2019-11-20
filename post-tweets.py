@@ -15,7 +15,10 @@ LOG = logging.getLogger(__name__)
 START_DATE = '2019-11-19'
 
 parser = argparse.ArgumentParser(description="""
-    Posts a top-level Tweet with formatted text from Andrew Yang's policies.""")
+    Posts a top-level Tweet with formatted text from Andrew Yang's policies.
+    Subsequent statuses are posted in response to the first Tweet containing
+    formatted goal text. A final status is posted in the same thread with a
+    collection of hard-coded hashtags.""")
 args = parser.parse_args()
 
 
