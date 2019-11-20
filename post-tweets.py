@@ -25,7 +25,7 @@ if __name__ == '__main__':
     auth.set_access_token(os.environ['TWITTER_ACCESS_TOKEN'],
         os.environ['TWITTER_ACCESS_SECRET'])
 
-    index = abs((
+    day_number = abs((
         datetime.strptime(START_DATE, '%Y-%m-%d') - datetime.now()
         ).days)
 
@@ -74,6 +74,7 @@ if __name__ == '__main__':
 
     with open('policies.json', 'r') as f:
         policies = json.load(f)
+        index = day_number % len(policies)
         policy = policies[index]
 
         status = post_policy(policy)
