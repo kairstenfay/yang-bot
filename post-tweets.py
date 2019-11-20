@@ -8,7 +8,7 @@ import logging
 import argparse
 from typing import Dict, Any
 from datetime import datetime
-from typing import Any, List
+from typing import Any
 
 
 LOG = logging.getLogger(__name__)
