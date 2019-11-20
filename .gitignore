@@ -1,0 +1,15 @@
+# Normally you'd commit this to source,
+# but since this isn't a real JS project
+# and we're only using npm for yang-policies,
+# we don't really need our package-lock.json in source
+package-lock.json
+
+# Definitely don't include any node modules in source
+node_modules/*
+# Except maybe the yang-policies
+!node_modules/yang-policies
+# But don't actually include any of those files...
+node_modules/yang-policies/*
+# Except the policies.json
+# TODO: do we want this file in source?
+# !node_modules/yang-policies/policies.json

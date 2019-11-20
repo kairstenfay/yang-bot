@@ -1,0 +1,8 @@
+{
+  "repository": "https://www.github.com/kairstenfay/yang-bot",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0",
+    "yang-policies": "^0.1.0"
+  }
+}
