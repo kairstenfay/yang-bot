@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
     def day_number() -> int:
         """ Returns the number of days since the global *START_DATE*. """
-        return datetime.now() - datetime.strptime(START_DATE, '%Y-%m-%d')
+        return (datetime.now() - datetime.strptime(START_DATE, '%Y-%m-%d')).days
 
 
     auth = tweepy.OAuthHandler(os.environ['TWITTER_CONSUMER_KEY'],
