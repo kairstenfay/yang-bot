@@ -58,22 +58,22 @@ if __name__ == '__main__':
         api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
+    def day_number() -> int:
+        """ """
+        return datetime.now() - datetime.strptime(START_DATE, '%Y-%m-%d')
+
     auth = tweepy.OAuthHandler(os.environ['TWITTER_CONSUMER_KEY'],
         os.environ['TWITTER_CONSUMER_SECRET'])
     auth.set_access_token(os.environ['TWITTER_ACCESS_TOKEN'],
         os.environ['TWITTER_ACCESS_SECRET'])
 
-    day_number = abs((
-        datetime.strptime(START_DATE, '%Y-%m-%d') - datetime.now()
-        ).days)
-
     api = tweepy.API(auth, wait_on_rate_limit=True,
         wait_on_rate_limit_notify=True,
         compression=True)
-        
+
     with open('policies.json', 'r') as f:
         policies = json.load(f)
-        index = day_number % len(policies)
+        index = day_number() % len(policies)
         policy = policies[index]
 
         status = post_policy(policy)
