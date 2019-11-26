@@ -43,7 +43,7 @@ parser.add_argument(
     action='store_true'
 )
 parser.add_argument(
-    '--no_tweet', 
+    '--no-tweet',
     help="If flagged, don't tweet: only log what we would have posted",
     default=False, 
     action='store_true'
