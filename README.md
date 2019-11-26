@@ -21,7 +21,7 @@ Make sure you've set these for the Twitter API:
 ## Download the data
 If you'd like to update Yang policy data, make sure you have [`npm`](https://www.npmjs.com/get-npm) installed and then run:
 ```sh
-python post-tweets.py --update --no-tweet
+python post-tweets.py --update --no_tweet
 ```
 
 ## Post statuses
