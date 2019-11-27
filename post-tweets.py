@@ -96,14 +96,15 @@ if __name__ == '__main__':
         Twitter's character limit.
         """
         title       = f"Policy #{index + 1}: {policy['title']}\n\n"
-        url         = f"\n {policy['url']} "
+        url         = f"{policy['url']} "
+        hashtags    = "\n#Yang2020 #YangGang "
 
-        remaining_chars = 280 - len(title) - len(url)
+        remaining_chars = 280 - len(title) - len(url) - len(hashtags)
         end = '...' if needs_ellipses(policy['description'], remaining_chars) else ''
 
         description = policy['description'][0:remaining_chars - len(end)] + end
 
-        status = title + description + url
+        status = title + description + hashtags + url
         return api.update_status(status=status)
 
 
