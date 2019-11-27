@@ -2,10 +2,26 @@
 
 Contains the code powering the [Yang Policy Bot](http://twitter.com/yang_policy_bot).
 
-## Download the data
-Download the data from the Yang Policy API by running:
+
+## Setup
+
+### Install python requirements
+This project requires `tweepy` to post tweets
 ```sh
-node download-policy-data.js > policies.json
+pip install -r requirements.txt
+```
+
+### Environment variables
+Make sure you've set these for the Twitter API:
+- `TWITTER_CONSUMER_KEY`
+- `TWITTER_CONSUMER_SECRET`
+- `TWITTER_ACCESS_TOKEN`
+- `TWITTER_ACCESS_SECRET`
+
+## Download the data
+If you'd like to update Yang policy data, make sure you have [`npm`](https://www.npmjs.com/get-npm) installed and then run:
+```sh
+python post-tweets.py --update --no-tweet
 ```
 
 ## Post statuses
