@@ -129,7 +129,7 @@ if __name__ == '__main__':
         """ Posts a new status in response to the given *status_id*. """
         status = 'Follow @AndrewYang for more messages like these!\n' + \
         'This bot was made by one of the #WomenForYang\n' + \
-        '#YangGang #Yang2020'
+        '#YangGang #Yang2020 #ISupportAndrewYang'
         api.update_status(status=status, in_reply_to_status_id=status_id)
 
 
