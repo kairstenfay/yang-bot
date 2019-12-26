@@ -28,7 +28,7 @@ from typing import Any, Dict
 import tweepy
 
 LOG = logging.getLogger(__name__)
-START_DATE = '2019-11-22'
+START_DATE = '2019-11-24'
 
 parser = argparse.ArgumentParser(description="""
     Posts a top-level Tweet with formatted text from Andrew Yang's policies.
