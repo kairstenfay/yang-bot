@@ -28,7 +28,7 @@ from typing import Any, Dict
 import tweepy
 
 LOG = logging.getLogger(__name__)
-START_DATE = '2019-12-01'
+START_DATE = '2019-12-06'
 
 parser = argparse.ArgumentParser(description="""
     Posts a top-level Tweet with formatted text from Andrew Yang's policies.
@@ -37,15 +37,15 @@ parser = argparse.ArgumentParser(description="""
     uniform message.""")
 parser.add_argument('--log', default='INFO', type=str, help='Log level')
 parser.add_argument(
-    '--update', 
+    '--update',
     help='If flagged, update our yang-policies install before posting tweets',
-    default=False, 
+    default=False,
     action='store_true'
 )
 parser.add_argument(
     '--no-tweet',
     help="If flagged, don't tweet: only log what we would have posted",
-    default=False, 
+    default=False,
     action='store_true'
 )
 args = parser.parse_args()
@@ -72,7 +72,7 @@ def update_policies() -> str:
         'since the last policy download...'
     )
     return run_shell('npm install yang-policies@latest')
-    
+
 
 
 if __name__ == '__main__':
